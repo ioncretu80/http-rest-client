@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestClient;
 import org.springframework.web.client.support.RestClientAdapter;
+import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.service.invoker.HttpServiceProxyFactory;
 
 @SpringBootApplication
@@ -23,5 +24,10 @@ public class HttpRestClientApplication {
 
 		return factory.createClient(UserHttpRestClient.class);
 
+	}
+
+	@Bean
+	public WebClient.Builder webClientBuilder() {
+		return WebClient.builder();
 	}
 }
